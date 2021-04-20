@@ -1,0 +1,58 @@
+﻿@model OptionButtonandDropdownMVC.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("StudentView", "Home", FormMethod.Post))
+{
+    
+<table>
+    <tr>
+        <th><label>Name</label></th>
+        <th>@Html.TextAreaFor(model => model.Name)</th>
+    </tr>
+    <tr>
+        <td><label>Gender</label></td>
+        <td>
+            @Html.RadioButtonFor(model => model.Gender, "Male", false)@Html.Label("Male")
+            @Html.RadioButtonFor(model => model.Gender, "Female", false)@Html.Label("Female")
+        </td>
+    </tr>
+    <tr>
+        <td>Education</td>
+        <td>
+
+
+            @Html.DropDownListFor(model => model.Status, new List<SelectListItem>
+        {
+          new SelectListItem{Text="Select", Value="Select"},
+          new SelectListItem{Text="PG", Value="PG"},
+          new SelectListItem{Text="UG", Value="UG"},
+          new SelectListItem{Text="+2", Value="+2"},
+          new SelectListItem{Text="10th", Value="10TH"}
+
+
+
+
+         })
+
+        </td>
+
+<tr>
+        <td></td>
+
+
+
+
+
+        <td> <input type="submit" value="submit" /></td>
+    </tr>
+</table>
+
+    
+}
+
+
